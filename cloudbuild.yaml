@@ -1,0 +1,19 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/projectcc-495216/pneumonia-repo/pneumonia-api', '.']
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-central1-docker.pkg.dev/projectcc-495216/pneumonia-repo/pneumonia-api']
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - 'pneumonia-api'
+      - '--image'
+      - 'us-central1-docker.pkg.dev/projectcc-495216/pneumonia-repo/pneumonia-api'
+      - '--region'
+      - 'us-central1'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
