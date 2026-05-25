@@ -27,6 +27,7 @@ model = tf.saved_model.load(MODEL_DIR)
 print(MODEL_DIR)
 # Get default serving signature safely
 infer = model.signatures["serving_default"]
+                  
 
 # ----------------------------
 # Google Cloud clients
