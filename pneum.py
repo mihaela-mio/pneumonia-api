@@ -15,7 +15,6 @@ from google.cloud import storage
 # Initialize app
 # ----------------------------
 app = Flask(__name__)
-
 # Class labels (adjust if your model differs)
 CLASS_NAMES = ["Normal", "Pneumonia"]
 
