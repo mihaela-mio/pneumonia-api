@@ -24,7 +24,7 @@ CLASS_NAMES = ["Normal", "Pneumonia"]
 # ----------------------------
 MODEL_DIR = os.path.join(os.path.dirname(__file__), "model_saved_model")
 model = tf.saved_model.load(MODEL_DIR)
-
+print(MODEL_DIR)
 # Get default serving signature safely
 infer = model.signatures["serving_default"]
 
